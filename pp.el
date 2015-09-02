@@ -5,7 +5,7 @@
 ;; Author: Steven Rémot
 ;; Version: 0.1
 ;; Keywords: php, hoa
-;; URL: https://github.com/stevenremot/hoa-pp-mode
+;; URL: https://github.com/hoaproject/Contributions-Emacs-Pp/
 ;; Package-Requires: ((emacs "24.1") (names "20150723.0"))
 ;;
 ;; This program is free software: you can redistribute it and/or modify
