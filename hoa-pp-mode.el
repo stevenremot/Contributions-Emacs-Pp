@@ -1,13 +1,13 @@
-;;; pp.el --- Major mode for Hoa PP grammars -*- lexical-binding: t -*-
-;;
+;;; hoa-pp-mode.el --- Major mode for Hoa PP grammars -*- lexical-binding: t -*-
+
 ;; Copyright (C) 2015 Steven Rémot
-;;
+
 ;; Author: Steven Rémot
-;; Version: 0.1
+;; Version: 0.2.1
 ;; Keywords: php, hoa
-;; URL: https://github.com/hoaproject/Contributions-Emacs-Pp/
+;; URL: https://github.com/stevenremot/hoa-pp-mode
 ;; Package-Requires: ((emacs "24.1") (names "20150723.0"))
-;;
+
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
@@ -20,7 +20,7 @@
 ;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
-;;
+
 ;;; Commentary:
 ;;
 ;; This package provides a major mode for editing hoa *.pp files.
@@ -68,6 +68,7 @@
 
 (defun setup-syntax-table (&optional table)
   "Setup the syntax table for `hoa-pp-mode'.
+
 TABLE is a syntax table.  It will be the default table if not provided."
   (modify-syntax-entry ?\" "." table)
   (modify-syntax-entry ?/ "<12" table)
@@ -142,4 +143,4 @@ TABLE is a syntax table.  It will be the default table if not provided."
 
 (provide 'hoa-pp-mode)
 
-;;; pp.el ends here
+;;; hoa-pp-mode.el ends here
