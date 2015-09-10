@@ -1,5 +1,9 @@
 ![Hoa](http://static.hoa-project.net/Image/Hoa_small.png)
 
+[![MELPA](http://melpa.org/packages/hoa-pp-mode-badge.svg)](http://melpa.org/#/hoa-pp-mode)
+[![MELPA Stable](http://stable.melpa.org/packages/hoa-pp-mode-badge.svg)](http://stable.melpa.org/#/hoa-pp-mode)
+
+
 Hoa is a **modular**, **extensible** and **structured** set of PHP libraries.
 Moreover, Hoa aims at being a bridge between industrial and research worlds.
 
@@ -8,13 +12,34 @@ Moreover, Hoa aims at being a bridge between industrial and research worlds.
 This repository contains tools for the PP grammar description language from
 [`Hoa\Compiler`](http://central.hoa-project.net/Resource/Library/Compiler).
 
+It provides a major mode for editing PP grammars that has syntax
+coloration and auto-indentation.
+
+![PP Major mode screenshot](./screenshots/sample.png)
+
 ## Installation
 
-…
+If you have setup MELPA or MELPA stable repositories, type `M-x package-install hoa-pp-mode`.
+
+If you want to install it by hand, you must first install
+[names](https://github.com/Malabarba/names).
+
+Then, clone this repository on your computer.
+
+```sh
+git clone git@github.com:hoaproject/Contributions-Emacs-Pp.git hoa-pp-mode
+```
+
+Finally, add this code in your Emacs configuration:
+
+```emacs-lisp
+(add-to-list 'load-path "/path/to/hoa-pp-mode")
+(require 'hoa-pp-mode)
+```
 
 ## Quick usage
 
-…
+Simply open a `.pp` file with Emacs. `hoa-pp-mode` will automatically be enabled.
 
 ## Documentation
 
