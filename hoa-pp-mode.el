@@ -1,7 +1,6 @@
 ;;; hoa-pp-mode.el --- Major mode for Hoa PP grammars -*- lexical-binding: t -*-
 
-;; Copyright © 2015, Ivan Enderlin.
-;; All rights reserved.
+;; Copyright © 2015-2015, Hoa community. All rights reserved.
 
 ;; Author: Steven Rémot
 ;; Maintainer: Steven Rémot
