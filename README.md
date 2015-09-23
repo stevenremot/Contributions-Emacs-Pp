@@ -15,11 +15,12 @@ This repository contains tools for the PP grammar description language from
 It provides a major mode for editing PP grammars that has syntax
 coloration and auto-indentation.
 
-![PP Major mode screenshot](./screenshots/sample.png)
+![PP Major mode screenshot](http://central.hoa-project.net/Resource/Contributions/Emacs/Pp/screenshots/sample.png?format=raw)
 
 ## Installation
 
-If you have setup MELPA or MELPA stable repositories, type `M-x package-install hoa-pp-mode`.
+If you have setup MELPA or MELPA stable repositories, type `M-x package-install
+hoa-pp-mode`.
 
 If you want to install it by hand, you must first install
 [names](https://github.com/Malabarba/names).
