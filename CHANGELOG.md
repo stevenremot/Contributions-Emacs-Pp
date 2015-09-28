@@ -1,6 +1,6 @@
 # 0.2.1
 
-* Adapt README and code to the new repsoitory (Ivan Ederlin, Julien Bianchi, Steven Rémot)
+* Adapt README and code to the new repsoitory (Ivan Enderlin, Julien Bianchi, Steven Rémot)
 * Remove calls to setq-local (Steven Rémot, 2015-08-18T21:44:23+02:00)
 
 # 0.2.0
