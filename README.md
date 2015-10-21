@@ -12,8 +12,11 @@ Moreover, Hoa aims at being a bridge between industrial and research worlds.
 This repository contains tools for the PP grammar description language from
 [`Hoa\Compiler`](http://central.hoa-project.net/Resource/Library/Compiler).
 
-It provides a major mode for editing PP grammars that has syntax
-coloration and auto-indentation.
+It provides a major mode for editing PP grammars with the following features:
+
+- syntax coloration
+- auto-indentation
+- Imenu support
 
 ![PP Major mode screenshot](http://central.hoa-project.net/Resource/Contributions/Emacs/Pp/screenshots/sample.png?format=raw)
 

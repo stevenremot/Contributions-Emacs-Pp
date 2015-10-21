@@ -1,3 +1,7 @@
+# Upcoming
+
+* Add support for Imenu (Steven Rémot, 2015-10-21T18:45:17 2015+02:00)
+
 # 0.2.1
 
 * Adapt README and code to the new repsoitory (Ivan Enderlin, Julien Bianchi, Steven Rémot)

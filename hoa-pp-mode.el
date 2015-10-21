@@ -37,12 +37,19 @@
 ;;; Commentary:
 ;;
 ;; This package provides a major mode for editing hoa *.pp files.
-;; It currently has syntax coloration and auto-indentation.
+;; Its current features are:
+;; - syntax coloration
+;; - auto-indentation
+;; - Imenu support
 
 ;;; Code:
 (eval-when-compile (require 'names))
 
 (define-namespace hoa-pp-mode-
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Syntax ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defconst directive-regexp (rx bol "%" (group (or "token" "skip"))
                                (? (+ blank) (group (+ (not (any blank ?\n))))
@@ -58,7 +65,7 @@
                                      eol)
   "Regular expression for matching arrow clause behind comiler directives.")
 
-(defconst rule-regexp (rx (? "#") (group (+ (or word (syntax symbol)))) ":" (* space) eol)
+(defconst rule-regexp (rx bol (? "#") (group (+ (or word (syntax symbol)))) ":" (* space) eol)
   "Regular expression for matching rule declaration.")
 
 (defconst font-lock-keywords
@@ -86,6 +93,10 @@ TABLE is a syntax table.  It will be the default table if not provided."
   (modify-syntax-entry ?\" "." table)
   (modify-syntax-entry ?/ "<12" table)
   (modify-syntax-entry ?\n ">" table))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Indentation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun is-at-directive-start? ()
   "Return t if the current point is at a directive start."
@@ -140,7 +151,28 @@ TABLE is a syntax table.  It will be the default table if not provided."
   "Setup the indent function for `hoa-pp-mode'."
   (set (make-local-variable 'indent-line-function) #'indent-line)
   (set (make-local-variable 'electric-indent-chars) '(?\n ?:)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Imenu ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defconst imenu-expressions (list
+                             (list "Tokens" (rx bol "%token" (+ blank) (group (+ (not (any blank ?\n))))) 1)
+                             (list "Rules" rule-regexp 1))
+  "Imenu configuration for `hoa-pp-mode'.")
+
+(defun setup-imenu ()
+  "Configure Imenu for `hoa-pp-mode'.
+
+Provide menu section for tokens and rules."
+  (setq imenu-generic-expression imenu-expressions)
+  (imenu-add-menubar-index))
 )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Mode definition ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;;;###autoload
 (define-derived-mode hoa-pp-mode
@@ -149,7 +181,8 @@ TABLE is a syntax table.  It will be the default table if not provided."
 \\{hoa-pp-mode-map"
   (set (make-local-variable 'font-lock-defaults) '(hoa-pp-mode-font-lock-keywords))
   (hoa-pp-mode-setup-syntax-table)
-  (hoa-pp-mode-setup-indentation))
+  (hoa-pp-mode-setup-indentation)
+  (hoa-pp-mode-setup-imenu))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.pp$" . hoa-pp-mode))
