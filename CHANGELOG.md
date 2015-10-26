@@ -1,4 +1,4 @@
-# Upcoming
+# 0.3.0
 
 * Add support for Imenu (Steven Rémot, 2015-10-21T18:45:17 2015+02:00)
 

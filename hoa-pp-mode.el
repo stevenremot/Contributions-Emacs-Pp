@@ -4,7 +4,7 @@
 
 ;; Author: Steven Rémot
 ;; Maintainer: Steven Rémot
-;; Version: 0.2.1
+;; Version: 0.3.0
 ;; Keywords: php, hoa
 ;; URL: https://github.com/hoaproject/Contributions-Emacs-Pp
 ;; Package-Requires: ((emacs "24.1") (names "20150723.0"))
